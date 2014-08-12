@@ -10,6 +10,11 @@ public abstract class AbstractTwirlView extends AbstractUrlBasedView {
 	protected final Redirect redirect;
 	protected final BufferedContent<?> content;
 
+	public AbstractTwirlView() {
+		this.redirect = null;
+		this.content = null;
+	}
+
 	public AbstractTwirlView(Redirect redirect) {
 		this.redirect = redirect;
 		this.content = null;

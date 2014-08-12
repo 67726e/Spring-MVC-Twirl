@@ -12,6 +12,10 @@ import java.util.Map;
  * User: 67726e
  */
 public class TwirlView extends AbstractTwirlView implements View {
+	public TwirlView() {
+		super();
+	}
+
 	public TwirlView(Redirect redirect) {
 		super(redirect);
 	}
