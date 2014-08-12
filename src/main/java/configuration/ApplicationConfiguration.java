@@ -14,7 +14,7 @@ import twirl.TwirlView;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan({"configuration"})
+@ComponentScan({"controller", "configuration"})
 public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 	@Bean
 	public ViewResolver setupViewResolver() {
@@ -25,13 +25,4 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 
 		return viewResolver;
 	}
-
-//	@Bean
-//	public TilesConfigurer setupTilesConfigurer() {
-//		TilesConfigurer configurer = new TilesConfigurer();
-//
-//		configurer.setDefinitions("classpath:views.xml");
-//
-//		return configurer;
-//	}
 }
