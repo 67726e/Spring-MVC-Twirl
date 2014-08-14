@@ -14,7 +14,7 @@ import twirl.TwirlView;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan({"controller", "configuration"})
+@ComponentScan({"controller", "controller.configuration"})
 public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 	@Bean
 	public ViewResolver setupViewResolver() {
