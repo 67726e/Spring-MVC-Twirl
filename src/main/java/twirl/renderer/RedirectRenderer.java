@@ -5,7 +5,10 @@ import twirl.TwirlView;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * User: 67726e
+ * @author 67726e
+ *
+ * Sends a 301 redirect response to the client with the URL designated in the TwirlView's Redirect object.
+ * @see twirl.Redirect
  */
 public class RedirectRenderer implements TwirlRenderer {
 	@Override

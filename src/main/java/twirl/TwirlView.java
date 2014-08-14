@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
- * User: 67726e
+ * @author Glenn Nelson
+ *
+ * The View class used to specify your usage of Twirl templates.
  */
 public class TwirlView extends AbstractTwirlView implements View {
 	public TwirlView() {

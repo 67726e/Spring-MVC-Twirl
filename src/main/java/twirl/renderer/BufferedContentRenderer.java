@@ -6,7 +6,9 @@ import twirl.TwirlView;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * User: 67726e
+ * @author Glenn Nelson
+ *
+ * The renderer used to render the Twirl template to the client, along with the designated Content-Type for the template.
  */
 public final class BufferedContentRenderer implements TwirlRenderer {
 	private final MediaType mediaType;
