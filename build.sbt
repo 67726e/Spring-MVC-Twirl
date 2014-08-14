@@ -7,6 +7,8 @@ version := "1.0-SNAPSHOT"
 
 scalaVersion := "2.11.2"
 
+sbtVersion := "1.13.5"
+
 lazy val root = (project in file(".")).enablePlugins(SbtTwirl)
 
 libraryDependencies ++= Seq(
