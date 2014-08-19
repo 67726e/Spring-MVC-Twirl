@@ -1,7 +1,8 @@
 
 import play.twirl.sbt.SbtTwirl
+import SonatypeKeys._
 
-name := "Spring-MVC-Twirl"
+name := "spring-mvc-twirl"
 
 organization := "us.hexcoder"
 
@@ -29,14 +30,21 @@ libraryDependencies ++= Seq(
 	"org.springframework" % "spring-test" % "4.0.6.RELEASE" % Test
 )
 
+// Publish configurations
+sonatypeSettings
+
+publishMavenStyle := true
+
+publishArtifact in Test := false
+
+licenses := Seq("MIT" -> url("http://opensource.org/licenses/MIT"))
+
+homepage := Some(url("https://github.com/67726e/Spring-MVC-Twirl"))
+
+pomIncludeRepository := { _ => false }
+
 // Additional POM information for releases
 pomExtra :=
-<licenses>
-	<license>
-		<name>MIT</name>
-		<url>http://opensource.org/licenses/MIT</url>
-	</license>
-</licenses>
 <developers>
 	<developer>
 		<name>Glenn Nelson</name>
