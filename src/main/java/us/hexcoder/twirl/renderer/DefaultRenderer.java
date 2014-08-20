@@ -1,6 +1,6 @@
-package twirl.renderer;
+package us.hexcoder.twirl.renderer;
 
-import twirl.TwirlView;
+import us.hexcoder.twirl.TwirlView;
 
 import javax.servlet.http.HttpServletResponse;
 

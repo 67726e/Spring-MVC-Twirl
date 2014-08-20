@@ -1,10 +1,10 @@
-package twirl;
+package us.hexcoder.twirl;
 
 /**
  * @author Glenn Nelson
  *
  * Class used to indicate a redirect in conjunction with a TwirlView.
- * @see twirl.TwirlView
+ * @see us.hexcoder.twirl.TwirlView
  */
 public class Redirect {
 	private String url;

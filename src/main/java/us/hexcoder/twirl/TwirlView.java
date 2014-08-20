@@ -1,8 +1,8 @@
-package twirl;
+package us.hexcoder.twirl;
 
 import org.springframework.web.servlet.View;
 import play.twirl.api.BufferedContent;
-import twirl.renderer.TwirlRendererFactory;
+import us.hexcoder.twirl.renderer.TwirlRendererFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

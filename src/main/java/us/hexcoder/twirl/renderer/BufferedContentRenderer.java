@@ -1,7 +1,7 @@
-package twirl.renderer;
+package us.hexcoder.twirl.renderer;
 
 import com.google.common.net.MediaType;
-import twirl.TwirlView;
+import us.hexcoder.twirl.TwirlView;
 
 import javax.servlet.http.HttpServletResponse;
 

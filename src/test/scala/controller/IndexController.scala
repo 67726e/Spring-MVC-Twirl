@@ -2,7 +2,7 @@ package controller
 
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.{RequestMapping, RequestMethod}
-import twirl.{Redirect, TwirlView}
+import us.hexcoder.twirl.{Redirect, TwirlView}
 
 /**
  * User: 67726e

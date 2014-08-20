@@ -1,8 +1,8 @@
-package twirl.renderer;
+package us.hexcoder.twirl.renderer;
 
 import com.google.common.net.MediaType;
 import play.twirl.api.*;
-import twirl.TwirlView;
+import us.hexcoder.twirl.TwirlView;
 
 /**
  * User: 67726e

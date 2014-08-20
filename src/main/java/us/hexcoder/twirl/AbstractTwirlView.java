@@ -1,4 +1,4 @@
-package twirl;
+package us.hexcoder.twirl;
 
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
 import play.twirl.api.*;

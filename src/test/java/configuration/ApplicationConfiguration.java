@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
-import twirl.TwirlView;
+import us.hexcoder.twirl.TwirlView;
 
 /**
  * User: 67726e
