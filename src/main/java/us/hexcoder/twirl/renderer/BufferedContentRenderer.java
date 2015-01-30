@@ -4,6 +4,7 @@ import com.google.common.net.MediaType;
 import us.hexcoder.twirl.TwirlView;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 
 /**
  * @author Glenn Nelson
@@ -19,7 +20,19 @@ public final class BufferedContentRenderer implements TwirlRenderer {
 
 	@Override
 	public void render(TwirlView view, HttpServletResponse response) throws Exception {
-		response.getOutputStream().print(view.getContent().toString());
+		response.setCharacterEncoding("UTF-8");
 		response.setContentType(mediaType.toString());
+
+		try (BufferedReader reader = new BufferedReader(new StringReader(view.getContent().toString()));
+			 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(response.getOutputStream()))) {
+			String line;
+
+			while ((line = reader.readLine()) != null) {
+				writer.write(line);
+				writer.write("\r\n");
+			}
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }
