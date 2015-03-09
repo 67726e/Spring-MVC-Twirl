@@ -3,7 +3,6 @@ package controller
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.{RequestMapping, RequestMethod}
 import us.hexcoder.twirl.view.TwirlView
-import us.hexcoder.twirl.{Redirect, TwirlView}
 
 /**
  * User: 67726e
@@ -11,10 +10,10 @@ import us.hexcoder.twirl.{Redirect, TwirlView}
 @Controller
 @RequestMapping(value = Array("/"))
 class IndexController {
-//	@RequestMapping(value = Array("/"), method = Array(RequestMethod.GET))
-//	def index():TwirlView = {
-//		new TwirlView()
-//	}
+	@RequestMapping(value = Array("/"), method = Array(RequestMethod.GET))
+	def index():TwirlView = {
+		TwirlView.ok()
+	}
 
 	@RequestMapping(value = Array("/test.html"), method = Array(RequestMethod.GET))
 	def getHtml():TwirlView = {

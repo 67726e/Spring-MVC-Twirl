@@ -2,8 +2,8 @@ package controller
 
 import _root_.configuration.ApplicationConfiguration
 import com.google.common.net.MediaType
-import org.junit.{Before, Test}
 import org.junit.runner.RunWith
+import org.junit.{Before, Test}
 import org.scalatest.junit.JUnitSuite
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
@@ -71,10 +71,10 @@ class IndexControllerTest extends JUnitSuite {
             .andExpect(redirectedUrl("/test.html"))
 	}
 
-//	@Test
-//	@throws[Exception]
-//	def testDefault():Unit = {
-//		mockMvc.perform(get("/"))
-//			.andExpect(status().isNoContent)
-//	}
+	@Test
+	@throws[Exception]
+	def testDefault():Unit = {
+		mockMvc.perform(get("/"))
+			.andExpect(status().isNoContent)
+	}
 }

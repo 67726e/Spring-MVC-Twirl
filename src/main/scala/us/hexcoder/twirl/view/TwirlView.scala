@@ -18,13 +18,15 @@ abstract class TwirlView extends AbstractUrlBasedView {
 }
 
 object TwirlView {
+    def redirect[A <: BufferedContent[A]](location: String): TwirlView = RedirectView(location)
+
     def ok[A <: BufferedContent[A]](content: BufferedContent[A]): TwirlView = ContentView[A](content, HttpStatus.OK)
-
     def error[A <: BufferedContent[A]](content: BufferedContent[A]): TwirlView = ContentView[A](content, HttpStatus.SERVICE_UNAVAILABLE)
-
     def badRequest[A <: BufferedContent[A]](content: BufferedContent[A]): TwirlView = ContentView[A](content, HttpStatus.BAD_REQUEST)
-
     def forbidden[A <: BufferedContent[A]](content: BufferedContent[A]): TwirlView = ContentView[A](content, HttpStatus.UNAUTHORIZED)
 
-    def redirect[A <: BufferedContent[A]](location: String): TwirlView = RedirectView(location)
+    def ok[A <: BufferedContent[A]](): TwirlView = EmptyView()
+    def error[A <: BufferedContent[A]](): TwirlView = EmptyView()
+    def badRequest[A <: BufferedContent[A]](): TwirlView = EmptyView()
+    def forbidden[A <: BufferedContent[A]](): TwirlView = EmptyView()
 }
