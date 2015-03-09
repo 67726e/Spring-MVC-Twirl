@@ -1,7 +1,7 @@
-package us.hexcoder.twirl.renderer;
+package us.hexcoder.twirl.render;
 
-import com.google.common.net.MediaType;
-import us.hexcoder.twirl.TwirlView;
+import us.hexcoder.twirl.view.ContentView;
+import us.hexcoder.twirl.view.TwirlView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -12,18 +12,19 @@ import java.io.*;
  * The renderer used to render the Twirl template to the client, along with the designated Content-Type for the template.
  */
 public final class BufferedContentRenderer implements TwirlRenderer {
-	private final MediaType mediaType;
-
-	protected BufferedContentRenderer(MediaType mediaType) {
-		this.mediaType = mediaType;
-	}
-
 	@Override
 	public void render(TwirlView view, HttpServletResponse response) throws Exception {
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType(mediaType.toString());
+		if (view == null) throw new IllegalArgumentException("The RenderableView cannot be null");
+		if (response == null) throw new IllegalArgumentException("The HttpServletResponse cannot be null");
+		if (!(view instanceof ContentView))
+			throw new IllegalArgumentException(String.format("The TwirlView %s is not of type ContentView", view.getClass()));
 
-		try (BufferedReader reader = new BufferedReader(new StringReader(view.getContent().toString()));
+		ContentView content = (ContentView) view;
+
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType(content.contentType().toString());
+
+		try (BufferedReader reader = new BufferedReader(new StringReader(content.bufferedContent().toString()));
 			 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(response.getOutputStream()))) {
 			String line;
 

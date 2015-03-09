@@ -1,22 +1,19 @@
 package controller
 
 import _root_.configuration.ApplicationConfiguration
-import org.junit.{Test, Before}
-import org.scalatest.junit.JUnitSuite
 import com.google.common.net.MediaType
-import org.junit.Before
-import org.junit.Test
+import org.junit.{Before, Test}
 import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitSuite
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.web.WebAppConfiguration
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.{content, redirectedUrl, status}
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.web.context.WebApplicationContext
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 /**
  * User: 67726e
@@ -71,12 +68,13 @@ class IndexControllerTest extends JUnitSuite {
 	def testRedirect():Unit = {
 		mockMvc.perform(get("/redirect"))
 			.andExpect(status().is3xxRedirection())
+            .andExpect(redirectedUrl("/test.html"))
 	}
 
-	@Test
-	@throws[Exception]
-	def testDefault():Unit = {
-		mockMvc.perform(get("/"))
-			.andExpect(status().isNoContent)
-	}
+//	@Test
+//	@throws[Exception]
+//	def testDefault():Unit = {
+//		mockMvc.perform(get("/"))
+//			.andExpect(status().isNoContent)
+//	}
 }
