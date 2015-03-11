@@ -7,11 +7,13 @@ import us.hexcoder.twirl.view._
  */
 object RendererFactory {
     def getRenderer(view: TwirlView): TwirlRenderer = {
+        if (view == null) throw new IllegalArgumentException("Cannot render a null view")
+
         view match {
             case EmptyView() => new EmptyRenderer
             case RedirectView(_) => new RedirectRenderer
             case ContentView(_, _, _) => new BufferedContentRenderer
-            case _ => new EmptyRenderer
+            case default => throw new IllegalStateException(s"Unable to find renderer for view of type ${default.getClass}")
         }
     }
 }
