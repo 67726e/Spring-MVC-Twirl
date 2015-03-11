@@ -37,6 +37,7 @@ class IndexControllerTest extends JUnitSuite {
 		mockMvc.perform(get("/test.html"))
 			.andExpect(status().isOk)
 			.andExpect(content().contentType(MediaType.HTML_UTF_8.toString))
+            .andExpect(content().encoding("utf-8"))
 	}
 
 	@Test
@@ -45,6 +46,7 @@ class IndexControllerTest extends JUnitSuite {
 		mockMvc.perform(get("/test.xml"))
 			.andExpect(status.isOk)
 			.andExpect(content().contentType(MediaType.XML_UTF_8.toString))
+            .andExpect(content().encoding("utf-8"))
 	}
 
 	@Test
@@ -53,6 +55,7 @@ class IndexControllerTest extends JUnitSuite {
 		mockMvc.perform(get("/test.txt"))
 			.andExpect(status.isOk)
 			.andExpect(content().contentType(MediaType.PLAIN_TEXT_UTF_8.toString))
+            .andExpect(content().encoding("utf-8"))
 	}
 
 	@Test
@@ -61,6 +64,7 @@ class IndexControllerTest extends JUnitSuite {
 		mockMvc.perform(get("/test.js"))
 			.andExpect(status().isOk)
 			.andExpect(content().contentType(MediaType.JAVASCRIPT_UTF_8.toString))
+            .andExpect(content().encoding("utf-8"))
 	}
 
 	@Test

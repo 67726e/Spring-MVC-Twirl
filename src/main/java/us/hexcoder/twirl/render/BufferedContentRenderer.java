@@ -5,6 +5,7 @@ import us.hexcoder.twirl.view.TwirlView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.nio.charset.Charset;
 
 /**
  * @author Glenn Nelson
@@ -12,6 +13,8 @@ import java.io.*;
  * The renderer used to render the Twirl template to the client, along with the designated Content-Type for the template.
  */
 public final class BufferedContentRenderer implements TwirlRenderer {
+	private static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
+
 	@Override
 	public void render(TwirlView view, HttpServletResponse response) throws Exception {
 		if (view == null) throw new IllegalArgumentException("The TwirlView cannot be null");
@@ -21,7 +24,7 @@ public final class BufferedContentRenderer implements TwirlRenderer {
 
 		ContentView content = (ContentView) view;
 
-		response.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding(content.contentType().charset().or(DEFAULT_CHARSET).toString());
 		response.setContentType(content.contentType().toString());
 
 		try (BufferedReader reader = new BufferedReader(new StringReader(content.bufferedContent().toString()));
