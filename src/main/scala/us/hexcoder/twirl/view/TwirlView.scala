@@ -18,15 +18,10 @@ abstract class TwirlView extends AbstractUrlBasedView {
 }
 
 object TwirlView {
-    def redirect[A <: BufferedContent[A]](location: String): TwirlView = RedirectView(location)
-
-    def ok[A <: BufferedContent[A]](content: BufferedContent[A]): TwirlView = ContentView[A](content, HttpStatus.OK)
-    def error[A <: BufferedContent[A]](content: BufferedContent[A]): TwirlView = ContentView[A](content, HttpStatus.SERVICE_UNAVAILABLE)
-    def badRequest[A <: BufferedContent[A]](content: BufferedContent[A]): TwirlView = ContentView[A](content, HttpStatus.BAD_REQUEST)
-    def forbidden[A <: BufferedContent[A]](content: BufferedContent[A]): TwirlView = ContentView[A](content, HttpStatus.UNAUTHORIZED)
-
-    def ok[A <: BufferedContent[A]](): TwirlView = EmptyView()
-    def error[A <: BufferedContent[A]](): TwirlView = EmptyView()
-    def badRequest[A <: BufferedContent[A]](): TwirlView = EmptyView()
-    def forbidden[A <: BufferedContent[A]](): TwirlView = EmptyView()
+    def redirect(location: String): RedirectView = RedirectView(location)
+    def empty(): EmptyView = EmptyView()
+    def ok[A <: BufferedContent[A]](content: BufferedContent[A]): ContentView[A] = ContentView[A](content, HttpStatus.OK)
+    def error[A <: BufferedContent[A]](content: BufferedContent[A]): ContentView[A] = ContentView[A](content, HttpStatus.INTERNAL_SERVER_ERROR)
+    def badRequest[A <: BufferedContent[A]](content: BufferedContent[A]): ContentView[A] = ContentView[A](content, HttpStatus.BAD_REQUEST)
+    def forbidden[A <: BufferedContent[A]](content: BufferedContent[A]): ContentView[A] = ContentView[A](content, HttpStatus.FORBIDDEN)
 }

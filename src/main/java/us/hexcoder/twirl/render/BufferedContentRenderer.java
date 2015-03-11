@@ -14,7 +14,7 @@ import java.io.*;
 public final class BufferedContentRenderer implements TwirlRenderer {
 	@Override
 	public void render(TwirlView view, HttpServletResponse response) throws Exception {
-		if (view == null) throw new IllegalArgumentException("The RenderableView cannot be null");
+		if (view == null) throw new IllegalArgumentException("The TwirlView cannot be null");
 		if (response == null) throw new IllegalArgumentException("The HttpServletResponse cannot be null");
 		if (!(view instanceof ContentView))
 			throw new IllegalArgumentException(String.format("The TwirlView %s is not of type ContentView", view.getClass()));

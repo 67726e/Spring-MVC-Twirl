@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 public class RedirectRenderer implements TwirlRenderer {
 	@Override
 	public void render(TwirlView view, HttpServletResponse response) throws Exception {
-		if (view instanceof RedirectView) {
-			response.sendRedirect(((RedirectView) view).location());
-		} else {
-			throw new IllegalArgumentException(String.format("TwirlView %s is not of type RedirectView", view.getClass()));
-		}
+		if (view == null) throw new IllegalArgumentException("The TwirlView cannot be null");
+		if (response == null) throw new IllegalArgumentException("The HttpServletResponse cannot be null");
+		if (!(view instanceof RedirectView))
+			throw new IllegalArgumentException(String.format("The TwirlView %s is not of type RedirectView", view.getClass()));
+
+		response.sendRedirect(((RedirectView) view).location());
 	}
 }

@@ -12,7 +12,7 @@ import us.hexcoder.twirl.view.TwirlView
 class IndexController {
 	@RequestMapping(value = Array("/"), method = Array(RequestMethod.GET))
 	def index():TwirlView = {
-		TwirlView.ok()
+		TwirlView.empty()
 	}
 
 	@RequestMapping(value = Array("/test.html"), method = Array(RequestMethod.GET))
